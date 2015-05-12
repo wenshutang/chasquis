@@ -1,0 +1,2 @@
+class AggregatedFeedController < ApplicationController
+end

@@ -1,0 +1,2 @@
+module SingleSourceFeedHelper
+end
