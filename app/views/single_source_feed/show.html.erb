@@ -1,13 +1,21 @@
 <title> La Razón feed </title>
 
-<div id="recent_episodes">
-  <h3>La Razón feed</h3>
-  <ul>
-    <% @feed_list.each do |feed| %>
-      <li>
-        <img src="<%= feed.image_url %>" class="img-responsive img-rounded" />
+<div class="container">
+  <div class="row">
+    <div class="col-md-12">
+      <h1 class="page-header">La Razón feed</h1>
+    </div>
+  </div>
+
+  <% @feed_list.each do |feed| %>
+    <div class="row" style="border-bottom: 1px solid #000">
+      <div class="col-xs-3">
+        <img src="<%= feed.image_url %>" class="img-responsive img-rounded pull-left" />
+      </div>
+      <div class="col-xs-9">
         <%= link_to h(feed.name), feed.url %>
-      </li>
-    <% end %>
-  </ul>
+      </div>
+    </div>
+  <% end %>
+
 </div>
