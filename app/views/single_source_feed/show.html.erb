@@ -13,7 +13,7 @@
         <img src="<%= feed.image_url %>" class="img-responsive img-rounded pull-left" />
       </div>
       <div class="col-xs-9">
-        <%= link_to h(feed.name), feed.url %>
+        <%= link_to h(feed.name), feed.url, target: '_blank' %>
       </div>
     </div>
   <% end %>
