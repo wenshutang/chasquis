@@ -3,8 +3,11 @@
 <div id="recent_episodes">
   <h3>La Razón feed</h3>
   <ul>
-    <% for feed in @feed_list %>
-        <li><%= link_to h(feed.name), feed.url %></li>
+    <% @feed_list.each do |feed| %>
+      <li>
+        <img src="<%= feed.image_url %>" class="img-responsive img-rounded" />
+        <%= link_to h(feed.name), feed.url %>
+      </li>
     <% end %>
   </ul>
 </div>
