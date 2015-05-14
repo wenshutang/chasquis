@@ -48,7 +48,7 @@ group :development, :test do
 
   gem 'feedjira', :git => 'https://github.com/feedjira/feedjira.git'
 
-#, :lib => "feedzirra", :source => "http://gems.github.com"
+  gem 'twitter-bootstrap-rails'
 
 end
 

@@ -3,17 +3,20 @@
 <div class="container">
   <div class="row">
     <div class="col-md-12">
-      <h1 class="page-header">La Razón feed</h1>
+      <h1 class="page-header" style = "text-align: center"> <%= @feed_name %> feed</h1>
     </div>
   </div>
 
   <% @feed_list.each do |feed| %>
-    <div class="row" style="border-bottom: 1px solid #000">
-      <div class="col-xs-3">
+    <div class="row" style="border-bottom: 20px; margin-top: 10px">
+      <div class="col-xs-3 col-xs-offset-1">
         <img src="<%= feed.image_url %>" class="img-responsive img-rounded pull-left" />
       </div>
-      <div class="col-xs-9">
-        <%= link_to h(feed.name), feed.url, target: '_blank' %>
+      <div class="col-xs-8">
+        <h4>
+          <%= link_to h(feed.name), feed.url, target: '_blank' %>
+        </h4>
+          <%= feed.summary %>
       </div>
     </div>
   <% end %>
