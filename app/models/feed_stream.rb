@@ -1,6 +1,7 @@
 class FeedStream < ActiveRecord::Base
   has_many :feed_entries
 
+  VALID_IMAGE_REGEX = /http:\/\/.*\.(jpeg|jpg|gif|png)/i
   @name_map = { 'eldiario' => 'El Diario', 'la-razon' => 'La Razón', 'eldeber' => 'El Deber' }
 
   def self.update_from_feed(url)
@@ -23,7 +24,7 @@ class FeedStream < ActiveRecord::Base
           url:          entry.url,
           published_at: entry.published,
           guid:         entry.id,
-          image_url:    entry.image
+          image_url:    entry.image #(entry.image =~ VALID_IMAGE_REGEX).nil? ? nil : entry.image.match(VALID_IMAGE_REGEX)[0]
         )
       end
     end
