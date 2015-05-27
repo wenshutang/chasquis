@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20150510073003) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "feed_entries", force: true do |t|
     t.string   "name"
     t.text     "summary"
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 20150510073003) do
     t.string   "image_url"
   end
 
-  add_index "feed_entries", ["feed_stream_id"], name: "index_feed_entries_on_feed_stream_id"
+  add_index "feed_entries", ["feed_stream_id"], name: "index_feed_entries_on_feed_stream_id", using: :btree
 
   create_table "feed_streams", force: true do |t|
     t.string   "source_name"
