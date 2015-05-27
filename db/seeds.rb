@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-#FeedStream.update_from_feed "http://www.la-razon.com/rss"
-#FeedStream.update_from_feed "http://www.eldiario.net/rss"
-#FeedStream.update_from_feed "http://www.eldeber.com.bo/rss"
-FeedStream.update_from_feed "http://www.abi.bo/rss/abi.xml"
+FeedStream.update_from_feed "http://www.la-razon.com/rss"
+FeedStream.update_from_feed "http://www.eldiario.net/rss"
+FeedStream.update_from_feed "http://www.eldeber.com.bo/rss"
+#FeedStream.update_from_feed "http://www.abi.bo/rss/abi.xml"
