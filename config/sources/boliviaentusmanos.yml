@@ -1,0 +1,28 @@
+source:   'boliviaentusmanos'
+src_name: 'Bolivia En Tus Manos'
+src_url:  'http://www.boliviaentusmanos.com'
+sections:
+  economia:
+    section_url: 'http://www.boliviaentusmanos.com/noticias/economia/'
+    score: 10
+    feed-selectors:
+      - 'div#content h1 a'
+      - 'div#content h2 a'
+    content-selectors:
+      title:    'div#content h1'
+      date:     'div#content div.autor li.datetxt time'
+      author:   'div#content div.autor li.datetxt'
+      img_url:  'div#content div.nimg img'
+      content:  'div#content div#txtnote'
+  nacional:
+    section_url: http://www.boliviaentusmanos.com/noticias/bolivia/
+    score: 10
+    feed-selectors:
+      - 'div#content h1 a'
+      - 'div#content h2 a'
+    content-selectors:
+      title:    'div#content h1'
+      date:     'div#content div.autor li.datetxt time'
+      author:   'div#content div.autor li.datetxt'
+      img_url:  'div#content div.nimg img'
+      content:  'div#content div#txtnote'

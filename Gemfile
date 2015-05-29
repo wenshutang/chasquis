@@ -38,11 +38,14 @@ gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 
+
+
 group :production do
   gem 'feedjira', :git => 'https://github.com/feedjira/feedjira.git'
 end
 
 group :development, :test do
+  gem 'rails_config'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
 
@@ -53,6 +56,9 @@ group :development, :test do
   gem 'spring'
 
   gem 'feedjira', :git => 'https://github.com/feedjira/feedjira.git'
+
+  # Use sqlite3 as the database for Active Record
+  gem 'sqlite3'
 
 end
 

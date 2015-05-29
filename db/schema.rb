@@ -11,10 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150510073003) do
-
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+ActiveRecord::Schema.define(version: 20150528222448) do
 
   create_table "feed_entries", force: true do |t|
     t.string   "name"
@@ -27,9 +24,14 @@ ActiveRecord::Schema.define(version: 20150510073003) do
     t.string   "source"
     t.integer  "feed_stream_id"
     t.string   "image_url"
+    t.string   "title"
+    t.string   "location"
+    t.text     "article_text"
+    t.string   "category"
+    t.string   "author"
   end
 
-  add_index "feed_entries", ["feed_stream_id"], name: "index_feed_entries_on_feed_stream_id", using: :btree
+  add_index "feed_entries", ["feed_stream_id"], name: "index_feed_entries_on_feed_stream_id"
 
   create_table "feed_streams", force: true do |t|
     t.string   "source_name"

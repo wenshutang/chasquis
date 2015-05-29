@@ -4,6 +4,7 @@ class FeedStream < ActiveRecord::Base
   VALID_IMAGE_REGEX = /http:\/\/.*\.(jpeg|jpg|gif|png)/i
   @name_map = { 'eldiario' => 'El Diario', 'la-razon' => 'La Razón', 'eldeber' => 'El Deber' }
 
+  #Using some bullshit
   def self.update_from_feed(url)
     feed_url, feed_name = url, URI.parse(url).host.scan(/[a-z\-]{4,}/)[0]
 

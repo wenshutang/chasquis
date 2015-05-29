@@ -1,0 +1,29 @@
+source:   'eldeber'
+src_name: 'El Deber'
+src_url:  'http://www.eldeber.com.bo'
+sections:
+  economia:
+    section_url: 'http://www.eldeber.com.bo/economia'
+    score: 10
+    feed-selectors:
+      - 'div.article-module.category-article-main a.title.page-link'
+      - 'div.listing.contentNews-listing.latest-listing.economia-listing.category-listing div.listing-title a.page-link'
+    content-selectors:
+      title:    'h1.title'
+      summary:  'h2.epigraph'
+      date:     'div#m251-1-252'
+      author:   'div.info div#m72-71-73'
+      content:  'div.paragraphs'
+
+  nacional:
+    section_url: 'http://www.eldeber.com.bo/bolivia'
+    score: 10
+    feed-selectors:
+      - 'div.article-module.category-article-main a.title.page-link'
+      - 'div.listing.contentNews-listing.latest-listing.bolivia-listing.category-listing div.listing-title a.page-link'
+    content-selectors:
+      title:    'h1.title'
+      summary:  'h2.epigraph'
+      date:     'div#m251-1-252'
+      author:   'div.info div#m72-71-73'
+      content:  'div.paragraphs'
