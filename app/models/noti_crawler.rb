@@ -15,7 +15,7 @@ class NotiCrawler
 
   def crawl
     # If not found, don't make duplicate entries
-    @fstream = FeedStream.find_or_create_by(source_name: @config['source']) do |stream|
+    @fstream = FeedStream.where(source_name: @config['source']).first_or_create do |stream|
       stream.feed_url  = @src_url
       stream.feed_name = @config['src_name']
     end
@@ -45,8 +45,9 @@ class NotiCrawler
   def fetch_content(url, section, selectors)
     # Need error handling
     doc = Nokogiri::HTML(open(url))
-
-    FeedEntry.find_or_create_by(url: url) do |entry|
+    puts "opening #{url}"
+    # store url in string format
+    FeedEntry.where(url: url.to_s).first_or_create do |entry|
       entry.title        = fetch_single_text(doc, selectors['title'])
       entry.source       = @src
       entry.category     = section
