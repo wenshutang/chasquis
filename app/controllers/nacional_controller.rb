@@ -1,0 +1,2 @@
+class NacionalController < ApplicationController
+end

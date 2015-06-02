@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'contactanos' => 'static_pages#contactanos'
+
+  get 'preguntas' => 'static_pages#preguntas_frequentes'
+
+  get 'terminos' => 'static_pages#terminos_de_uso'
+
+  get 'quienes' => 'static_pages#quienes_somos'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -58,4 +66,5 @@ Rails.application.routes.draw do
   #root 'feed_home#show', as: 'home'
   get '/feeds/:src', to: 'single_source_feed#show'
 
+  get '/economia', to: 'economia#show'
 end

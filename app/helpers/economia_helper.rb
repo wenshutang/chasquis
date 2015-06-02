@@ -1,0 +1,2 @@
+module EconomiaHelper
+end
