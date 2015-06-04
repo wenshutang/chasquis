@@ -66,5 +66,5 @@ Rails.application.routes.draw do
   #root 'feed_home#show', as: 'home'
   get '/feeds/:src', to: 'single_source_feed#show'
 
-  get '/economia', to: 'economia#show'
+  get '/economia', to: 'economia#index'
 end
