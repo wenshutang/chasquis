@@ -1,7 +1,6 @@
 <% provide(:title, "Economia") %>
+<% articles =  @economia_articles if local_assigns[:articles].nil? %>
 
+<%= render 'layouts/news_content', articles: @economia_articles %>
 
-<%= render 'layouts/header' %>
-<%= render 'layouts/news_content' %>
-<%= render 'layouts/footer' %>
 

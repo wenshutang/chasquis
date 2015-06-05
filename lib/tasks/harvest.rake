@@ -11,4 +11,11 @@ namespace :harvest do
     harvesters.each { |h| h.crawl }
   end
 
+  desc "harvest Content from \'Bolivia en Tus Manos\'"
+  task boliviaentusmanos: :environment do
+   file = "#{Rails.root.join('config','sources')}/boliviaentusmanos.yml"
+   crawler = NotiCrawler.new(file)
+   crawler.crawl
+  end
+
 end

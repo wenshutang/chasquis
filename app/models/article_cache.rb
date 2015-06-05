@@ -33,7 +33,6 @@ class ArticleCache
       index_section_ranking(section, key)
 
     end
-
   end
 
   def index_section_ranking(section, guid)
@@ -48,7 +47,7 @@ class ArticleCache
   end
 
 
-  private:
+  private
     # Helper to store hashes
     def store(key, val)
       $redis.mapped_hmset(key, val) unless $redis.exists(key)
