@@ -9,5 +9,6 @@ sections:
       - 'p.portseccsec a'
     content-selectors:
       title:    'title'
-      date:     'div.panel-pane.pane-node-created div.pane-content'
+      date:     {datetime: 'div.panel-pane.pane-node-created div.pane-content'}
+      img_url:  'div.field.field-name-field-foto-noticia.field-type-image.field-label-hidden div.field-item.even'
       content:  'div.field.field-name-field-contenido-noticia.field-type-text-long.field-label-hidden div.field-item.even'

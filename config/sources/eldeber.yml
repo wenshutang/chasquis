@@ -11,7 +11,8 @@ sections:
     content-selectors:
       title:    'h1.title'
       summary:  'h2.epigraph'
-      date:     'div#m251-1-252'
+      date:     { datetime: 'div#m251-1-252', fmt: '%d/%m/%Y%H:%M'}
+      img_url:  'div.captioned-image.image-article img'
       author:   'div.info div#m72-71-73'
       content:  'div.paragraphs'
 
@@ -24,6 +25,7 @@ sections:
     content-selectors:
       title:    'h1.title'
       summary:  'h2.epigraph'
-      date:     'div#m251-1-252'
+      date:     { datetime: 'div#m251-1-252', fmt: '%d/%m/%Y%H:%M'}
+      img_url:  'div.captioned-image.image-article img'
       author:   'div.info div#m72-71-73'
       content:  'div.paragraphs'

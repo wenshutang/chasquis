@@ -10,7 +10,7 @@ sections:
       - 'div#content h2 a'
     content-selectors:
       title:    'div#content h1'
-      date:     'div#content div.autor li.datetxt time'
+      #date:     {sel: 'div#content div.autor li.datetxt time', regex_format: '%m/%d/%Y'}
       author:   'div#content div.autor li.datetxt'
       img_url:  'div#content div.nimg img'
       content:  'div#content div#txtnote'
@@ -22,7 +22,7 @@ sections:
       - 'div#content h2 a'
     content-selectors:
       title:    'div#content h1'
-      date:     'div#content div.autor li.datetxt time'
+      #date:     {sel: 'div#content div.autor li.datetxt time', regex_format: '%m/%d/%Y'}
       author:   'div#content div.autor li.datetxt'
       img_url:  'div#content div.nimg img'
       content:  'div#content div#txtnote'

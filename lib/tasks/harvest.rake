@@ -12,10 +12,12 @@ namespace :harvest do
   end
 
   desc "harvest Content from \'Bolivia en Tus Manos\'"
-  task boliviaentusmanos: :environment do
-   file = "#{Rails.root.join('config','sources')}/boliviaentusmanos.yml"
-   crawler = NotiCrawler.new(file)
-   crawler.crawl
+  task :source, [:src] => :environment  do |t, args|
+    puts "Harvesting from #{args[:src]}"
+    # TODO: error handling
+    file = File.open("#{Rails.root.join('config','sources')}/#{args[:src]}.yml", 'r')
+    crawler = NotiCrawler.new(file)
+    crawler.crawl
   end
 
 end

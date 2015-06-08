@@ -11,7 +11,8 @@ sections:
     content-selectors:
       title:    'h2.headline.headline-regular'
       summary:  'p.teaser'
-      date:     'span.meta-datestamp'
+      date:     { date: 'span.meta-datestamp', date_fmt: ['gsub!','de',''] , time: 'span.meta-timestamp' }
+      img_url:  'div.obj-img img'
       location: 'span.meta-place'
       author:   'span.meta-author'
       content:  'div.tx.mce.m-blk'
@@ -25,7 +26,8 @@ sections:
     content-selectors:
       title:    'h2.headline.headline-regular'
       summary:  'p.teaser'
-      date:     'span.meta-datestamp'
+      date:     { date: 'span.meta-datestamp', date_fmt: ['gsub!','de',''] , time: 'span.meta-timestamp' }
+      img_url:  'div.obj-img img'
       location: 'span.meta-place'
       author:   'span.meta-author'
       content:  'div.tx.mce.m-blk'
