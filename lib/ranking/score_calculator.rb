@@ -4,28 +4,28 @@
 $score_modifiers = {}
 
 $score_modifiers['sequence'] = {
-  name: 'sequence order modifier'
-  proc: Proc.new do |article|
-    article['score']
-  end
+    name: 'sequence order modifier'
+proc: Proc.new do |article|
+  article['score']
+end
 }
 
 $score_modifiers['src_weight'] = {
-  name: 'source weight modifier'
-  proc: Proc.new do |article|
-    article['score']
-  end
+    name: 'source weight modifier'
+proc: Proc.new do |article|
+  article['score']
+end
 }
 
 $score_modifiers['section_weight'] = {
-  name: 'section weight modifier'
-  proc: Proc.new do |article|
-    article['section']
-  end
+    name: 'section weight modifier'
+proc: Proc.new do |article|
+  article['section']
+end
 
 }
 
-class RankCalculator
+class ScoreCalculator
 
   # Updates score based on: 1) applying score modifiers
   # 2) Applying score function

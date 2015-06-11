@@ -1,0 +1,12 @@
+sequence_order:
+  1:  50
+  2:  40
+  3:  20
+
+source_weight:
+  boliviaentusmanos:  30
+  eldeber:            30
+  la-razon:           20
+  erbol:              20
+
+image_penalty: -20
