@@ -1,0 +1,36 @@
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="section">
+                  <% 8.times do |idx| %>
+                    <% if articles[idx].image_url.nil? %>
+                      <%= render 'layouts/article_frame', article: articles[idx] %>
+                    <% else %>
+                      <%= render 'layouts/article_image_frame', article: articles[idx] %>
+                    <% end %>
+                  <% end %>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="section">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <%= render 'layouts/section_column' %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

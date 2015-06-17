@@ -1,0 +1,30 @@
+<div class="container">
+    <div class="row article-pane">
+      <div class="col-md-3 center-cropped">
+        <a href="#"><%= image_tag(article.image_url, class: "img-responsive") %></a>
+      </div>
+      <div class="col-md-5">
+        <div class="section float:right;">
+          <div class="row">
+            <h3><%= article.title %></h3>
+            <p><%= article.summary %></p>
+            <div class="icon-items">
+              <i class="fa fa-clock-o"></i> &nbsp;hace <%= elapsed_time(article) %>&nbsp;
+            </div>
+            <div class="icon-items">
+              <i class="fa fa-fw fa-user"></i> &nbsp;<%= article.author %>&nbsp;
+            </div>
+            <div class="icon-items">
+              <i class="fa fa-external-link fa-fw"></i>
+              <%= link_to article.url do %>
+                <%= article.name %>
+              <% end %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+
+
+

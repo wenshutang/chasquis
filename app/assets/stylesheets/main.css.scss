@@ -1,0 +1,86 @@
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+body {
+    font-family: georgia, freight-text-pro, "Lucida Grande", serif !important;
+    font-size: 16px;
+    line-height: 24px;
+    background: white;
+    text-rendering: optimizeLegibility;
+}
+
+.item {
+  width: 120px;
+  min-height: 120px;
+  max-height: auto;
+  float: left;
+  margin: 3px;
+  padding: 3px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+.article-pane {
+  margin: 15px 0 15px 0;
+  max-height: 170px;
+
+  h3 {
+    margin-top: 0;
+    vertical-align: top;
+    font-weight: 600;
+  }
+
+  img {
+    float: left;
+    max-width: 100%;
+    height: auto;
+
+#max-height: 170px;
+#max-width: 256px;
+    position: relative;
+  }
+
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: normal;
+  text-align: left;
+}
+
+.article-pane-simple {
+  margin: 15px 0 15px 15px;
+  max-height: 170px;
+
+  h3 {
+    margin-top: 0;
+    vertical-align: top;
+    font-weight: 600;
+  }
+
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: normal;
+  text-align: left;
+}
+
+
+
+.center-cropped {
+  width: 285px;
+  height: 170px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  overflow: hidden;
+}
+
+
+.icon-items {
+  color: #aaa;
+  font-size: 11px;
+  display: inline-block;
+  margin-left: 5px;
+}
