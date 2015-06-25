@@ -1,0 +1,21 @@
+<div class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 section section-nav">
+        <h2><%=name%></h2>
+
+        <% listing.each do |news_item| %>
+          <div class="row">
+            <div class="section section-nav-title">
+              <div class="container col-md-12">
+
+                  <%= link_to news_item.title, article_path(news_item)%>
+              </div>
+            </div>
+          </div>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>

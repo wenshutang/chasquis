@@ -1,0 +1,32 @@
+source:   'larazon'
+src_name: 'La Razón'
+src_url:  'http://www.la-razon.com'
+sections:
+  economia:
+    section_url: 'http://www.la-razon.com/economia/'
+    feed-selectors:
+      - 'h2.headline.headline-regular > a'
+      - 'h2.headline.headline-small > a'
+    content-selectors:
+      title:    'h2.headline.headline-regular'
+      deck:     'p.teaser'
+      date:     { date: 'span.meta-datestamp', time: 'span.meta-timestamp' }
+      img_url:  'div.obj-img img'
+      location: 'span.meta-place'
+      author:   'span.meta-author'
+      content:  'div.tx.mce.m-blk'
+
+  nacional:
+    section_url: 'http://www.la-razon.com/nacional/'
+    score: 15
+    feed-selectors:
+      - 'h2.headline.headline-regular > a'
+      - 'h2.headline.headline-small > a'
+    content-selectors:
+      title:    'h2.headline.headline-regular'
+      deck:     'p.teaser'
+      date:     { date: 'span.meta-datestamp', time: 'span.meta-timestamp' }
+      img_url:  'div.obj-img img'
+      location: 'span.meta-place'
+      author:   'span.meta-author'
+      content:  'div.tx.mce.m-blk'

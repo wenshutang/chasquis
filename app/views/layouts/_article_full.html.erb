@@ -1,0 +1,20 @@
+<div class="simple-totalpackage">
+    <div class="col-md-8 nopadding">
+      <div class="row">
+        <div class="col-md-12">
+          <%= image_tag @article.image_url, class: "image-above-headline center-block img-responsive"%>
+        </div>
+      </div>
+      <div class="row full-article">
+          <h2><%= @article.title %></h2>
+          <div class="full-article-chaser">
+            <p></p>
+          </div>
+          <p><%= @article.source %> / <%= @article.author %> / <%= @article.published_at %> </p>
+          <hr style="height:30px">
+          <div class="full-article-text">
+            <%= raw(@article.article_text) %>
+          </div>
+      </div>
+    </div>
+</div>
