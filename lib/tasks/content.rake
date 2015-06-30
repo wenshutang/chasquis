@@ -1,13 +1,18 @@
 namespace :content do
-  desc "refresh redis based content cache"
+  desc "refresh content cache"
   task refresh: :environment do
-    @content_cache = ArticleCache.new
-    @content_cache.update
+    ArticleCache.new.update
   end
 
+  desc "flush all cached content in redis"
   task flush: :environment do
-    $redis.flushall
-    #@content_cache.clear_all
+    ArticleCache.new.flushall
+  end
+
+  require 'ranking/score_calculator'
+  desc "update all scores in cache"
+  task update_scores: :environment do
+    ScoreCalculator.update_all
   end
 
 end

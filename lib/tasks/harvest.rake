@@ -1,5 +1,5 @@
 namespace :harvest do
-  desc "harvest all content"
+  desc "harvest all sources"
   task all: :environment do
     harvesters = []
     Dir.glob("#{Rails.root.join('config','sources')}/*.yml") do |file|
@@ -11,7 +11,7 @@ namespace :harvest do
     harvesters.each { |h| h.crawl }
   end
 
-  desc "harvest Content from \'Bolivia en Tus Manos\'"
+  desc "harvests a single source"
   task :source, [:src] => :environment  do |t, args|
     puts "Harvesting from #{args[:src]}"
     # TODO: error handling

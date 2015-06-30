@@ -17,9 +17,6 @@ module BaseProcessor
     content.to_html
   end
 
-
-
-
   # extract the leading paragraph
   def extract_lead (htext)
     content = Nokogiri::HTML::DocumentFragment.parse htext
