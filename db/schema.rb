@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150608055230) do
+ActiveRecord::Schema.define(version: 20150623023251) do
 
   create_table "feed_entries", force: true do |t|
     t.string   "name"
@@ -30,6 +30,9 @@ ActiveRecord::Schema.define(version: 20150608055230) do
     t.string   "category"
     t.string   "author"
     t.integer  "order_seq"
+    t.integer  "score"
+    t.string   "slug"
+    t.string   "deck"
   end
 
   add_index "feed_entries", ["feed_stream_id"], name: "index_feed_entries_on_feed_stream_id"

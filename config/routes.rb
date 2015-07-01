@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'section_nav/index'
+
   get 'contactanos' => 'static_pages#contactanos'
 
   get 'preguntas' => 'static_pages#preguntas_frequentes'
@@ -63,8 +65,16 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  #root 'feed_home#show', as: 'home'
+  root 'portada#index', as: 'home'
+
   get '/feeds/:src', to: 'single_source_feed#show'
 
   get '/economia', to: 'economia#index'
+
+  get '/nacional', to: 'nacional#index'
+
+  get '/portada', to: 'portada#index'
+
+  get 'articles/:id', to: 'articles#show', as: 'article'
+
 end

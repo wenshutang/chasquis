@@ -1,12 +1,18 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+/* Global styling */
+
 body {
-    font-family: georgia, freight-text-pro, "Lucida Grande", serif !important;
+    font-family: georgia, "Lucida Grande", serif !important;
     font-size: 16px;
-    line-height: 24px;
     background: white;
     text-rendering: optimizeLegibility;
+}
+
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
 }
 
 .item {
@@ -23,9 +29,49 @@ body {
 }
 
 
+/* Header */
+.site-header {
+  width: 100%;
+  z-index: 2000;
+  height: 80px;
+  margin: 30px 0 10px 0;
+
+  .site-header-inner {
+    width: 990px;
+    margin: 0 auto;
+    text-align: left;
+    max-width: 100%;
+  }
+
+  .site-header-mainflag{
+    text-align: left;
+    float: left;
+    font-family: 'Open Sans', serif;
+    font-size: 80px;
+    font-weight: bolder;
+    color: #333;
+    padding-top: 0 /* 33px */;
+    letter-spacing: -1px;
+    font-style: normal;
+  }
+
+}
+
+
+.main-column-left {
+  width: auto;
+  padding-left: 0px;
+}
+
 .article-pane {
-  margin: 15px 0 15px 0;
+  margin: 10px 0 10px 0;
   max-height: 170px;
+  max-width: 950px;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: normal;
+  text-align: left;
 
   h3 {
     margin-top: 0;
@@ -37,21 +83,22 @@ body {
     float: left;
     max-width: 100%;
     height: auto;
-
-#max-height: 170px;
-#max-width: 256px;
     position: relative;
   }
 
-  font-family: 'Open Sans', sans-serif;
-  font-size: 14px;
-  line-height: 20px;
-  font-weight: normal;
-  text-align: left;
+  .article-pane-summary {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  .article-pane-text {
+    width: 50%
+
+  }
 }
 
 .article-pane-simple {
-  margin: 15px 0 15px 15px;
+  margin: 10px 0 10px 15px;
   max-height: 170px;
 
   h3 {
@@ -67,20 +114,64 @@ body {
   text-align: left;
 }
 
-
-
 .center-cropped {
   width: 285px;
   height: 170px;
+  padding-left: 0px;
+
   background-position: center center;
   background-repeat: no-repeat;
   overflow: hidden;
 }
-
 
 .icon-items {
   color: #aaa;
   font-size: 11px;
   display: inline-block;
   margin-left: 5px;
+}
+
+/* Section navigation */
+.section-nav {
+  font-family: 'Open Sans', sans-serif;
+
+}
+.section-nav-title {
+  font-size: 14px;
+}
+
+
+/* styling for article pages */
+.simple-totalpackage {
+  font-family: 'Open Sans', sans-serif;
+  width: 90%;
+  max-width: 990px !important;
+  text-align: left;
+  margin: 0 auto;
+}
+
+.image-above-headline {
+  position: relative;
+  display: table;
+  width: 100%;
+  height: auto;
+  margin: 30px 0 25px 0;
+  background-size: cover;
+}
+
+.full-article {
+  hr{
+    size: 80px;
+    width: 175%;
+  }
+}
+
+.full-article-chaser {
+  font-size: 14px;
+}
+
+.full-article-text {
+  font-size: 13px;
+  line-height: 20px;
+  box-sizing: border-box;
 }

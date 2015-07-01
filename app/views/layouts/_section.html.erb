@@ -5,7 +5,7 @@
         <div class="section">
           <div class="container">
             <div class="row">
-              <div class="col-md-8">
+              <div class="col-md-8 nopadding">
                 <div class="section">
                   <% 8.times do |idx| %>
                     <% if articles[idx].image_url.nil? %>
@@ -21,16 +21,28 @@
                   <div class="container">
                     <div class="row">
                       <div class="col-md-4">
-                        <%= render 'layouts/section_column' %>
+                        <%= render 'layouts/section_nav_pane', listing: section_listing("economia"), name: "Economía"%>
                       </div>
                     </div>
                   </div>
+
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-4">
+                        <%= render 'layouts/section_nav_pane', listing: section_listing("nacional"), name: "Nacional"%>
+                      </div>
+                    </div>
+                  </div>
+
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
+
+
+
     </div>
   </div>
 </div>

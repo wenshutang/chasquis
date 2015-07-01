@@ -1,20 +1,30 @@
-<div class="row">
-  <div class="col-md-3">
-    <a href="#"><img src="http://www.la-razon.com/economia/Cochabamba-Internadores-concluyeron-protesta-puertas_LRZIMA20150610_0027_11.jpg" class="img-responsive"></a>
-  </div>
-  <div class="col-md-5">
-    <div class="section">
-      <div class="row">
-        <h3>Ejecutivo calcula que internadores evaden Bs 300 MM en impuestos</h3>
-        <p>La escasez y la provisión irregular de carne vacuna continúa. El Gobierno
-          informó que los internadores del producto evaden al menos Bs 300 millones
-          en impuestos y obtienen Bs 9 millones en ganancias cada año. El sector
-          indicó que el cálculo se encuentra “fuera de la realidad”.</p>
-        <p>
-          <i class="fa fa-clock-o fa-lg"></i>&nbsp;&nbsp;Hace 12 horas&nbsp;&nbsp;
-          <i class="fa fa-fw fa-lg fa-user"></i>&nbsp;&nbsp;Gezien Manzilla&nbsp;&nbsp;
-          <i class="fa fa-external-link fa-fw fa-lg"></i>&nbsp;&nbsp;La Razón&nbsp;&nbsp;</p>
+<div class="container">
+    <div class="row article-pane-simple">
+      <div class="col-md-8">
+        <div class="section float:right;">
+          <div class="row">
+            <h3><%= link_to article.title, article_path(article) %></h3>
+            <p><%= article.deck %></p>
+            <div class="article-pane-summary">
+              <%= raw(article.summary) %>
+            </div>
+            <div class="icon-items">
+              <span class="fa fa-clock-o"></span>&nbsp;hace &nbsp;<%= elapsed_time(article) %>&nbsp;
+            </div>
+            <div class="icon-items">
+              <i class="fa fa-fw fa-user"></i> &nbsp;<%= article.author %>&nbsp;
+            </div>
+            <div class="icon-items">
+              <i class="fa fa-external-link fa-fw"></i>
+              <%= link_to article.url do %>
+                <%= article.name %>
+              <% end %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
 </div>
+
+
+

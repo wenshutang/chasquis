@@ -48,26 +48,58 @@ class NotiCrawler
   # by the config file
   def fetch_content(url, section, seq, selectors)
     # Need error handling
-    doc = Nokogiri::HTML(open(url))
-    puts "Parsing #{url}"
-    # store url in string format
-    FeedEntry.where(url: url.to_s).first_or_create do |entry|
-      entry.title        = fetch_single_text(doc, selectors['title'])
-      entry.source       = @src
-      entry.category     = section
-      entry.published_at = selectors['date'].nil? ? DateTime.now :
-                                                    parse_date_time(doc, selectors['date'])
-      entry.location     = fetch_single_text(doc, selectors['location'])
-      entry.author       = fetch_single_text(doc, selectors['author']) || @src_name
-      entry.summary      = fetch_single_text(doc, selectors['summary'])
-      entry.image_url    = fetch_image_src(doc, selectors['img_url'])
-      entry.article_text = doc.at_css(selectors['content']).to_html.to_s
-      entry.order_seq    = seq
-      entry.feed_stream  = @fstream
+    entry = FeedEntry.where(url: url.to_s).first
+    if entry.blank?
+      puts "Fetching #{url}"
+      # Fill out basic info
+      entry = FeedEntry.create do |article|
+        article.url           = url.to_s
+        article.category      = section
+        article.source        = @src
+        article.name          = @src_name
+        article.order_seq     = seq
+        article.feed_stream   = @fstream
+      end
+
+      doc = Nokogiri::HTML(open(url))
+      entry = update_article_content(entry, doc, selectors)
+    else
+      puts "Skipping #{url}"
+      # Update columns for an existing entry
+      # update sequence order if changed
+      entry.order_seq = seq unless entry.order_seq == seq
     end
+
+    # write to db
+    entry.save!
+
   end
 
   private
+    def update_article_content(article, doc, selectors)
+      # Fetch simple elements based on css selectors
+      article.title       = fetch_single_text(doc, selectors['title'])
+      article.location    = fetch_single_text(doc, selectors['location'])
+      article.author      = fetch_single_text(doc, selectors['author']) || @src_name
+      article.deck        = fetch_single_text(doc, selectors['deck'])
+      article.image_url   = fetch_image_src(doc, selectors['img_url'])
+
+      # load custom processing modules based on source
+      extend "#{@src.capitalize}Processor".constantize
+
+      # Run through source specific processor to extract relevant text
+      text_html = process_full_text(doc.at_css(selectors['content']))
+      article.article_text = text_html
+      article.summary      = article.image_url.nil? ? extract_summary(text_html, 500) :
+                                                      extract_lead(text_html)
+
+      article.published_at = selectors['date'].nil? ? DateTime.now :
+                                                      parse_date_time(doc, selectors['date'] )
+
+      article
+    end
+
+
     def fetch_single_text(doc, sel_expr)
       # Given a selection expression, fetches the first text object
       return nil if sel_expr.nil?
@@ -89,31 +121,14 @@ class NotiCrawler
 
     def parse_date_time(doc, date_sel)
       if date_sel.has_key? 'datetime'
-        time = doc.at_css(date_sel['datetime']).text
-        if date_sel.has_key? 'fmt'
-          return DateTime.strptime(time, date_sel['fmt'])
-        else
-          return DateTime.parse(time)
-        end
+        dt = doc.at_css(date_sel['datetime']).text
+        return process_datetime( dt )
+      elsif date_sel.has_key?('date') && date_sel.has_key?('time')
+        date_str = doc.at_css(date_sel['date']).text.strip
+        time_str = doc.at_css(date_sel['time']).text.strip
+        return process_date_and_time(date_str, time_str)
       end
-
-      dt = DateTime.new
-      if date_sel.has_key? 'date'
-        date_str = doc.at_css(date_sel['date']).text
-        # format parsed string from given configuration
-        if date_sel.has_key? 'date_fmt'
-          func = date_sel['date_fmt'].first
-          args = date_sel['date_fmt'][1..-1]
-          date_str.send(func, *args)
-        end
-        dt = DateTime.parse(date_str)
-      end
-
-      if date_sel.has_key? 'time'
-        time_str = doc.at_css(date_sel['time']).text
-        dt = DateTime.parse(time_str)
-      end
-      return dt
+      DateTime.now
     end
 
 end

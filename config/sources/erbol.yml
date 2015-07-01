@@ -4,7 +4,6 @@ src_url: 'http://www.erbol.com.bo'
 sections:
   economia:
     section_url: 'http://www.erbol.com.bo/noticia/economia'
-    score: 10
     feed-selectors:
       - 'p.portseccsec a'
     content-selectors:
@@ -12,3 +11,5 @@ sections:
       date:     {datetime: 'div.panel-pane.pane-node-created div.pane-content'}
       img_url:  'div.field.field-name-field-foto-noticia.field-type-image.field-label-hidden div.field-item.even'
       content:  'div.field.field-name-field-contenido-noticia.field-type-text-long.field-label-hidden div.field-item.even'
+
+

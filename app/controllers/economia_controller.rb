@@ -1,8 +1,16 @@
 class EconomiaController < ApplicationController
-  def index
-    ranking = $redis.zrangebyscore("economia_ranking", 0, "+inf", :limit=> [0, 6])
-    # Fetch all relevant information of an article
-    @economia_articles = ranking.map { |guid| $redis.hgetall(guid) }
+  helper_method :elapsed_time
 
+  def index
+    # top 8 articles based on score
+    @economia_articles = FeedEntry.where(category: "economia").order(score: :desc).limit(8)
   end
+
+  def elapsed_time(article)
+    delta_time = Time.parse(DateTime.now.to_s) - Time.parse(article.published_at.to_s)
+
+    return "#{(delta_time/3600).round} horas" if delta_time.round > 1
+    return "#{(delta_time/60)}.round minutos"
+  end
+
 end

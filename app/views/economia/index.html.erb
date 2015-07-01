@@ -1,6 +1,4 @@
 <% provide(:title, "Economia") %>
 <% articles =  @economia_articles if local_assigns[:articles].nil? %>
 
-<%= render 'layouts/news_content', articles: @economia_articles %>
-
-
+<%= render 'layouts/section', articles: @economia_articles %>
