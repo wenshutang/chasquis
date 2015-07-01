@@ -1,0 +1,4 @@
+<% provide(:title, "Portada") %>
+<% articles =  @portada_articles if local_assigns[:articles].nil? %>
+
+<%= render 'layouts/section', articles: @portada_articles %>
