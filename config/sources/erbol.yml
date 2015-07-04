@@ -2,6 +2,17 @@ source:  'erbol'
 src_name: 'ERBOL'
 src_url: 'http://www.erbol.com.bo'
 sections:
+  portada:
+    section_url: 'http://erbol.com.bo/'
+    feed-selectors:
+      - 'div.principortseccint.principortseccprimera_movil a'
+      - 'div.view-content div.portseccsec a'
+    content-selectors:
+      title:    'title'
+      date:     {datetime: 'div.panel-pane.pane-node-created div.pane-content'}
+      img_url:  'div.field.field-name-field-foto-noticia.field-type-image.field-label-hidden div.field-item.even'
+      content:  'div.field.field-name-field-contenido-noticia.field-type-text-long.field-label-hidden div.field-item.even'
+
   economia:
     section_url: 'http://www.erbol.com.bo/noticia/economia'
     feed-selectors:

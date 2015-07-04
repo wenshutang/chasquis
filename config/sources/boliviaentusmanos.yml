@@ -2,9 +2,18 @@ source:   'boliviaentusmanos'
 src_name: 'boliviaentusmanos.com'
 src_url:  'http://www.boliviaentusmanos.com'
 sections:
+  portada:
+    section_url: 'http://www.boliviaentusmanos.com/'
+    feed-selectors:
+      - 'div#carousel h1 a'
+    content-selectors:
+      title:    'div#content h1'
+      #date:     {sel: 'div#content div.autor li.datetxt time', regex_format: '%m/%d/%Y'}
+      author:   'div#content div.autor li.datetxt'
+      img_url:  'div#content div.nimg img'
+      content:  'div#content div#txtnote'
   economia:
     section_url: 'http://www.boliviaentusmanos.com/noticias/economia/'
-    score: 10
     feed-selectors:
       - 'div#content h1 a'
       - 'div#content h2 a'
@@ -16,7 +25,6 @@ sections:
       content:  'div#content div#txtnote'
   nacional:
     section_url: http://www.boliviaentusmanos.com/noticias/bolivia/
-    score: 10
     feed-selectors:
       - 'div#content h1 a'
       - 'div#content h2 a'
