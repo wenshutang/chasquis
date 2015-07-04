@@ -3,7 +3,7 @@ class EconomiaController < ApplicationController
 
   def index
     # top 8 articles based on score
-    @economia_articles = FeedEntry.where(category: "economia").order(score: :desc).limit(8)
+    @economia_articles = FeedEntry.tagged_with('economia').order(score: :desc).limit(8)
   end
 
   def elapsed_time(article)

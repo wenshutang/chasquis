@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623023251) do
+ActiveRecord::Schema.define(version: 20150703094958) do
 
   create_table "feed_entries", force: true do |t|
     t.string   "name"
@@ -43,6 +43,22 @@ ActiveRecord::Schema.define(version: 20150623023251) do
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.string   "feed_name"
+  end
+
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "feed_entry_id"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "taggings", ["feed_entry_id"], name: "index_taggings_on_feed_entry_id"
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
+
+  create_table "tags", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

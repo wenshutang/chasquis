@@ -8,6 +8,7 @@
               <div class="col-md-8 nopadding">
                 <div class="section">
                   <% 8.times do |idx| %>
+                    <% break if idx >= articles.count %>
                     <% if articles[idx].image_url.nil? %>
                       <%= render 'layouts/article_frame', article: articles[idx] %>
                     <% else %>

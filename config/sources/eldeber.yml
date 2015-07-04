@@ -2,6 +2,22 @@ source:   'eldeber'
 src_name: 'El Deber'
 src_url:  'http://www.eldeber.com.bo'
 sections:
+  portada:
+    section_url: 'http://www.eldeber.com.bo/'
+    feed-selectors:
+      - 'div.home-articles div.article-module.articlex1.article1x1 a#m1680-1-1681'
+      - 'div.foto-icon.article-module.articlex3.article1x3#m1736-1-1737 a#m1746-1-1747'
+      - 'div.article-module.articlex3.article1x3#m1806-1805-1807 a#m1816-1-1817'
+      - 'div.article-module.articlex3.article1x3#m1838-1-1839 a#m1848-1-1849'
+      - 'div.article-module.articlex3.article1x3#m1870-2-1871 a#m1880-1-1881'
+    content-selectors:
+      title:    'h1.title'
+      deck:     'h2.epigraph'
+      date:     { datetime: 'div#m251-1-252' }
+      img_url:  'div.captioned-image.image-article img'
+      author:   'div.info div#m72-71-73'
+      content:  'div.paragraphs'
+
   economia:
     section_url: 'http://www.eldeber.com.bo/economia'
     feed-selectors:

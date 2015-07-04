@@ -55,6 +55,7 @@ class NotiCrawler
       entry = FeedEntry.create do |article|
         article.url           = url.to_s
         article.category      = section
+        article.tag_list      = "#{section}, #{@src}"
         article.source        = @src
         article.name          = @src_name
         article.order_seq     = seq
@@ -67,6 +68,7 @@ class NotiCrawler
       puts "Skipping #{url}"
       # Update columns for an existing entry
       # update sequence order if changed
+      entry.tag = section # updates tag
       entry.order_seq = seq unless entry.order_seq == seq
     end
 
