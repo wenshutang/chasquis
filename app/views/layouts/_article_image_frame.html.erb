@@ -12,7 +12,7 @@
               <%= raw(article.summary) %>
             </div>
             <div class="icon-items">
-              <i class="fa fa-clock-o"></i>&nbsp;hace <%= elapsed_time(article) %>&nbsp;
+              <i class="fa fa-clock-o"></i>&nbsp;<%= time_ago_in_words article.published_at %>&nbsp;
             </div>
             <div class="icon-items">
               <i class="fa fa-fw fa-user"></i>&nbsp;<%= article.author %>&nbsp;
